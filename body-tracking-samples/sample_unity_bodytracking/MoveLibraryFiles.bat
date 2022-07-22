@@ -8,6 +8,9 @@ set PACKAGE_SYSTEM_MEMORY=packages\System.Memory.4.5.3
 set PACKAGE_SYSTEM_RUNTIME_SERVICES=packages\System.Runtime.CompilerServices.Unsafe.4.5.2
 set PACKAGE_SYSTEM_REFLECTION=packages\System.Reflection.Emit.Lightweight.4.6.0
 
+set BODY_TRACKING_SDK_PATH=C:\Program Files\Azure Kinect Body Tracking SDK\
+set BODY_TRACKING_TOOLS_PATH="%BODY_TRACKING_SDK_PATH%tools\"
+
 copy %PACKAGE_SENSOR_SDK%\lib\netstandard2.0\Microsoft.Azure.Kinect.Sensor.dll Assets\Plugins
 copy %PACKAGE_SENSOR_SDK%\lib\netstandard2.0\Microsoft.Azure.Kinect.Sensor.pdb Assets\Plugins
 copy %PACKAGE_SENSOR_SDK%\lib\netstandard2.0\Microsoft.Azure.Kinect.Sensor.deps.json Assets\Plugins
@@ -37,3 +40,18 @@ copy %PACKAGE_ONNXRUNTIME%\lib\native\amd64\release\onnxruntime.dll .\
 copy %PACKAGE_ONNXRUNTIME%\lib\native\amd64\release\onnxruntime_providers_cuda.dll .\
 copy %PACKAGE_ONNXRUNTIME%\lib\native\amd64\release\onnxruntime_providers_shared.dll .\
 copy %PACKAGE_ONNXRUNTIME%\lib\native\amd64\release\onnxruntime_providers_tensorrt.dll .\
+
+copy %BODY_TRACKING_TOOLS_PATH%cublas64_11.dll Assets\Plugins
+copy %BODY_TRACKING_TOOLS_PATH%cublasLt64_11.dll Assets\Plugins
+copy %BODY_TRACKING_TOOLS_PATH%cudart64_110.dll Assets\Plugins
+copy %BODY_TRACKING_TOOLS_PATH%onnxruntime.dll Assets\Plugins
+copy %BODY_TRACKING_TOOLS_PATH%k4abt.dll Assets\Plugins
+copy %BODY_TRACKING_TOOLS_PATH%cudnn64_8.dll .\
+copy %BODY_TRACKING_TOOLS_PATH%cudnn_cnn_infer64_8.dll .\
+copy %BODY_TRACKING_TOOLS_PATH%cudnn_ops_infer64_8.dll .\
+copy %BODY_TRACKING_TOOLS_PATH%onnxruntime.dll .\
+copy %BODY_TRACKING_TOOLS_PATH%dnn_model_2_0_op11.onnx .\
+copy %BODY_TRACKING_TOOLS_PATH%cublas64_11.dll .\
+copy %BODY_TRACKING_TOOLS_PATH%cublasLt64_11.dll .\
+copy %BODY_TRACKING_TOOLS_PATH%cudart64_110.dll .\
+copy %BODY_TRACKING_TOOLS_PATH%cufft64_10.dll .\
