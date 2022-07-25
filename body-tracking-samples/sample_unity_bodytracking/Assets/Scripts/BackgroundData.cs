@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-// Class which contains all data sent from background thread to main thread.
+//バックグラウンドスレッドからメインスレッドに送信されるすべてのデータを含むクラス。
 [Serializable]
 public class BackgroundData : ISerializable
 {
-    // Timestamp of current data
+    //現在のデータのタイムスタンプ
     public float TimestampInMs { get; set; }
 
-    // Depth image frame. 
+    //奥行き画像フレーム
     public byte[] DepthImage { get; set; }
 
     public int DepthImageWidth { get; set; }
     public int DepthImageHeight { get; set; }
     public int DepthImageSize { get; set; }
 
-    // Number of detected bodies.
+    //検出されたボディの数
     public ulong NumOfBodies { get; set; }
 
-    // List of all bodies in current frame, each body is list of Body objects.
+    //現在のフレーム内のすべてのボディのリスト。各ボディはBodyオブジェクトのリスト
     public Body[] Bodies { get; set; }
 
     public BackgroundData(int maxDepthImageSize = 1024 * 1024 * 3, int maxBodiesCount = 20, int maxJointsSize = 100)
@@ -45,8 +45,8 @@ public class BackgroundData : ISerializable
 
     public void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-        // Writing only relevant data to serialized stream, without the placeholder data
-        // (the real depthimage size is not maxdepthimagesize, but smaller).
+        //プレースホルダーデータなしで、関連データのみをシリアル化されたストリームに書き込む
+        //（実際のdepthimageサイズはmaxdepthimagesizeではなく、小さいです）。
         info.AddValue("TimestampInMs", TimestampInMs, typeof(float));
         info.AddValue("DepthImageWidth", DepthImageWidth, typeof(int));
         info.AddValue("DepthImageHeight", DepthImageHeight, typeof(int));
